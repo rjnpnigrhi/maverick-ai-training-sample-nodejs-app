@@ -1,7 +1,17 @@
+'use strict';
+
 const express = require('express');
 const app = express();
-const port = 3000;
 
-app.get('/', (req, res) => res.send('Hello World from NodeJS app!'));
+app.get('/', (req, res) => {
+  res.status(200).send('Hello, world from NodeJS App!');
+});
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+if (module === require.main) {
+  const server = app.listen(process.env.PORT || 8080, () => {
+    const port = server.address().port;
+    console.log(`App listening on port ${port}`);
+  });
+}
+
+module.exports = app;

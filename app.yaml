@@ -1,0 +1,2 @@
+service: maverick-ai-training-sample-nodejs-app
+runtime: nodejs10

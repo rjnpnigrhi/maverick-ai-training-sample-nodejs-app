@@ -8,3 +8,6 @@
 ###### Mac/Linux: (development server)  
 - `npm install`  
 - `node index.js`  
+
+###### Deploy on Google Cloud
+- `gcloud app deploy`
