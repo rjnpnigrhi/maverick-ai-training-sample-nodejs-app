@@ -30,9 +30,7 @@ jobs:
         run: docker push $DOCKERHUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG
   GithubContainerRegistry:
     permissions:
-      packages:
-        - write
-        - read
+      packages: write
     needs: [DockerHub]
     runs-on: macos-12
     steps:
