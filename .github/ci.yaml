@@ -1,0 +1,28 @@
+name: ci
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+env:
+  IMAGE_NAME:
+  DOCKER_REGISTRY:
+
+jobs:
+  Docker:
+    steps:
+      - uses: actions/checkout@2
+      - name: docker login
+        env:
+          DOCKER_USER: ${{secrets.DOCKER_USER}}
+          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        run: |
+          docker login -u $DOCKER_USER -p DOCKER_PASSWORD
+      - name: build docker image
+        env:
+          DOCKER_USER: ${{secrets.DOCKER_USER}}
+        run: docker build . --file Dockerfile --tag $DOCKER_USER/sample-nodejs-app:v1
+      - name: push docker image
+        env:
+          DOCKER_USER: ${{secrets.DOCKER_USER}}
+        run: docker push $DOCKER_USER/sample-nodejs-app:v1
