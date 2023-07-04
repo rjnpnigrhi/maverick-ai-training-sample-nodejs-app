@@ -32,7 +32,7 @@ jobs:
     permissions:
       packages: write
     needs: [DockerHub]
-    runs-on: macos-12
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
       - name: Login to GitHub Container Registry
