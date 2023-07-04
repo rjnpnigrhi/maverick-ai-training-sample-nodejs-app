@@ -1,5 +1,7 @@
 FROM node:18
 
+LABEL org.opencontainers.image.source https://github.com/rjnpnigrhi/maverick-ai-training-sample-nodejs-app#readme
+
 # Create app directory
 WORKDIR /usr/src/app
 
